@@ -8,5 +8,11 @@
 <body>
     <h1>Главная сайт "книги"</h1>
     <p>Добро пожаловать на наш сайт, где вы можете найти множество книг на любой вкус.</p>
+    {% for book in books %}
+        <div class="card">
+            <h2 class="title-card">{{ book.title }}</h2>
+            <p class="desc-card">{{ book.desc }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
