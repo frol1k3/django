@@ -20,3 +20,30 @@ body{
     height: 300px;
     box-shadow: 0 5px 5px rgba(40, 40, 40, 0.5);
 }
+
+header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background-color: cornflowerblue;
+    color: black;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
+
+a{
+    direction: none;
+    color: black;
+}
+
+.auth{
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
