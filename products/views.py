@@ -27,3 +27,6 @@ def api_get_all_authors(req):
     dataList = [author.parse_object() for author in authors]
     # list - чтобы преобразовать объект класса QuerySet в массив
     return JsonResponse(dataList, safe=False)
+
+def info(req):
+    return render(req, "info.html")
