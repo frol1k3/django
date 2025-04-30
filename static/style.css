@@ -15,14 +15,16 @@ body{
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .card{
     width: 260px;
     height: 300px;
-    box-shadow: 0 5px 5px rgba(40, 40, 40, 0.5);
+    box-shadow: 2px 5px 8px 10px rgba(40, 40, 40, 0.5);
     border-radius: 15px;
     padding: 20px 40px;
+
 }
 
 .desc-card{
