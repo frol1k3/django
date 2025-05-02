@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from products.models import Book, Author
+from products.models import *
 from django.views.generic import ListView
 from django.http import HttpRequest, JsonResponse
 
@@ -30,3 +30,11 @@ def api_get_all_authors(req):
 
 def info(req):
     return render(req, "info.html")
+
+def review(req):
+    user = req.GET.get("user")
+    if (user):
+        reviews = Review.objects.filter(reviews=review)
+    else:
+        reviews = Review.objects.all()    
+    return render(req, "review.html", {"reviews": reviews})
