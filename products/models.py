@@ -34,3 +34,30 @@ class Book(models.Model):
     class Meta:
         verbose_name = "Книга"
         verbose_name_plural = "Книги"
+
+class Review(models.Model):
+    name = models.CharField("Имя или никнейм", max_length=30)
+    message = models.TextField("Сообщение")
+    date_create = models.DateTimeField("Дата добавления", auto_now_add=True)
+
+
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+
+class User(models.Model):
+    name = models.CharField("Имя", max_length=50)
+    age = models.IntegerField("Возраст")
+
+    reviews = models.ForeignKey(Review, related_name="reviews", verbose_name="Отзыв(ы)", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
