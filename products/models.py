@@ -28,6 +28,8 @@ class Book(models.Model):
 
     authors = models.ManyToManyField(Author, related_name="books", verbose_name="Автор(ы)")
 
+    
+
     def __str__(self):
         return self.title
     

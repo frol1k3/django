@@ -2,7 +2,7 @@ from django.shortcuts import render
 from products.models import *
 from django.views.generic import ListView
 from django.http import HttpRequest, JsonResponse
-
+from django.urls import reverse
 
 class IndexListView (ListView):
     model = Book 
@@ -38,3 +38,9 @@ def review(req):
     else:
         reviews = Review.objects.all()    
     return render(req, "review.html", {"reviews": reviews})
+
+def card(req):
+    template_name = "card.html"
+
+    def get_success_url(self):
+        return reverse("card", args=[self.request.book.id,])
