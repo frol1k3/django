@@ -39,8 +39,15 @@ def review(req):
         reviews = Review.objects.all()    
     return render(req, "review.html", {"reviews": reviews})
 
-def card(req):
-    template_name = "card.html"
+def book_card(request: HttpRequest, pk: int):
+    if (pk):
+        book = Book.objects.get(id=pk)
+        author = Author.objects.filter(books=book)[0]
+        return render(request, "book_card.html", {"book":book, "author":author})
+    return reverse("catalog")
 
-    def get_success_url(self):
-        return reverse("card", args=[self.request.book.id,])
+def author_card(request: HttpRequest, pk: int):
+    if (pk):
+        author = Author.objects.get(id=pk)
+        return render(request, "author_card.html", {"author":author})
+    return reverse("book_card.html")

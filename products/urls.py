@@ -8,5 +8,6 @@ urlpatterns = [
     path("all-authors/", api_get_all_authors, name="api_all_authors"),
     path("info/", info, name="info"),
     path("review/", review, name="review"),
-    path("card/", card, name="card"),
+    path("<int:pk>", book_card, name="book"),
+    path("author/<int:pk>", author_card, name="author"),
 ]
