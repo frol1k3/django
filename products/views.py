@@ -51,3 +51,5 @@ def author_card(request: HttpRequest, pk: int):
         author = Author.objects.get(id=pk)
         return render(request, "author_card.html", {"author":author})
     return reverse("book_card.html")
+
+
