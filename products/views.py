@@ -13,24 +13,17 @@ class IndexListView (ListView):
 #   books = Book.objects.all()
 #   return render(req, "index.html", {"books" : books})
 
-def author_catalog(req: HttpRequest):
+def catalog(req: HttpRequest):
     #Достаю параметр маршрута
     author = req.GET.get("author")
+    date = req.GET.get("date")
+    books = Book.objects.all() 
     if (author):
-        books = Book.objects.filter(authors=author)
-    else:
-        books = Book.objects.all()    
+        books = books.filter(authors=author)
+    if (date):
+        books = Book.objects.filter(date_public__year__gt=int(date))       
     return render(req, "catalog.html", {"books": books})
 
-def date_catalog(req: HttpRequest):
-    date = req.GET.get("date")
-    if (date):
-        for book in books:
-            if book.date_publick.year >= date:
-                books = Book.objects.filter(books=book)    
-    else:
-        books = Book.objects.all()    
-    return render(req, "catalog.html", {"books": books})
 
 def api_get_all_authors(req):
     authors = Author.objects.all()
